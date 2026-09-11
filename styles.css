@@ -105,10 +105,57 @@ footer strong{font-family:"Bodoni Moda",serif;font-weight:700;letter-spacing:.12
 .reveal.visible{opacity:1;transform:none}
 
 @media (max-width: 900px){
-  .site-header{padding:18px 20px}
-  .menu-toggle{display:block}
-  .nav{position:fixed;inset:0;background:var(--ivory);padding:100px 24px 40px;display:flex;flex-direction:column;gap:24px;transform:translateY(-100%);transition:.4s;z-index:-1;font-family:"Bodoni Moda",serif;font-weight:700;font-size:34px;letter-spacing:0}
-  .nav.open{transform:translateY(0)}
+  .site-header{
+    padding:14px 18px;
+    background:rgba(247,243,235,.97);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line);
+  }
+  .brand{font-size:15px;letter-spacing:.09em}
+  .menu-toggle{
+    display:block;
+    position:relative;
+    z-index:102;
+    padding:8px 0 8px 14px;
+    color:var(--ink);
+    font-family:"Noto Sans KR",sans-serif;
+    font-size:11px;
+    font-weight:500;
+    line-height:1;
+    letter-spacing:.14em;
+    cursor:pointer;
+  }
+  .nav{
+    display:none;
+    position:absolute;
+    top:56px;
+    right:14px;
+    width:min(292px,calc(100vw - 28px));
+    max-height:calc(100svh - 72px);
+    overflow-y:auto;
+    padding:14px;
+    grid-template-columns:1fr 1fr;
+    gap:0;
+    background:rgba(247,243,235,.99);
+    border:1px solid var(--line);
+    box-shadow:0 12px 34px rgba(23,23,20,.10);
+    z-index:101;
+    font-family:"Noto Sans KR",sans-serif;
+    font-size:11px;
+    font-weight:500;
+    line-height:1.2;
+    letter-spacing:.08em;
+  }
+  .nav.open{display:grid}
+  .nav a{
+    display:flex;
+    align-items:center;
+    min-height:42px;
+    padding:10px 9px;
+    border-bottom:1px solid rgba(23,23,20,.10);
+  }
+  .nav a:nth-last-child(-n+2){border-bottom:0}
+  .nav a:after{display:none}
   .hero{display:block;padding:120px 22px 48px;min-height:100svh}
   .hero-placeholder{inset:24vh 20px 24px 38vw}
   .hero-copy{position:relative}
@@ -231,4 +278,18 @@ footer strong,
 .brand-meaning-copy {
   margin-top: 0;
   line-height: 1.9;
+}
+
+
+@media (max-width: 430px){
+  .site-header{padding:13px 16px}
+  .brand{font-size:14px}
+  .nav{
+    top:52px;
+    right:10px;
+    width:calc(100vw - 20px);
+    padding:10px 12px;
+    font-size:10px;
+  }
+  .nav a{min-height:40px;padding:9px 7px}
 }
