@@ -3,36 +3,24 @@ const toggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.nav');
 
 window.addEventListener('scroll', () => {
-  header.classList.toggle('scrolled', window.scrollY > 20);
+  header.classList.toggle('scrolled', window.scrollY > 55);
 });
 
-toggle?.addEventListener('click', () => {
-  const open = nav.classList.toggle('open');
-  toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-  toggle.textContent = open ? 'CLOSE' : 'MENU';
-});
-
+toggle?.addEventListener('click', () => nav.classList.toggle('open'));
 document.querySelectorAll('.nav a').forEach(a => {
-  a.addEventListener('click', () => {
-    nav.classList.remove('open');
-    toggle?.setAttribute('aria-expanded', 'false');
-    if (toggle) toggle.textContent = 'MENU';
+  a.addEventListener('click', () => nav.classList.remove('open'));
+});
+
+document.querySelectorAll('.faq-item').forEach(item => {
+  item.addEventListener('click', () => {
+    item.classList.toggle('open');
   });
 });
 
-const io = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) entry.target.classList.add('visible');
-  });
-}, { threshold: 0.12 });
-
-document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-
-document.querySelectorAll('[data-placeholder]').forEach(a => {
-  a.addEventListener('click', (e) => {
-    if (a.getAttribute('href') === '#') {
-      e.preventDefault();
-      alert('이 링크는 추후 실제 채널 URL로 연결하면 됩니다.');
-    }
-  });
+const phoneInput = document.querySelector('input[name="phone"]');
+phoneInput?.addEventListener('input', (e) => {
+  let v = e.target.value.replace(/\D/g, '').slice(0, 11);
+  if (v.length < 4) e.target.value = v;
+  else if (v.length < 8) e.target.value = `${v.slice(0,3)}-${v.slice(3)}`;
+  else e.target.value = `${v.slice(0,3)}-${v.slice(3,7)}-${v.slice(7)}`;
 });
