@@ -18,6 +18,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Noto+Serif+KR:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css" />
+  <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=sniwyffttx"></script>
 </head>
 
 <body>
@@ -276,15 +277,8 @@
           <a class="line-button" href="tel:01083835646">전화 문의 ↗</a>
         </div>
       </div>
-
-      <a class="map-preview reveal" href="https://naver.me/G8fPqrv3" target="_blank" rel="noopener">
-        <div class="map-grid"></div>
-        <div class="map-pin">
-          <span>NUHAV</span>
-          <small>BALLET</small>
-        </div>
-        <div class="map-copy">BUCHEON · SANG-DONG</div>
-      </a>
+<div class="map-preview reveal" id="naver-map"></div>
+      
     </section>
 
 
@@ -472,5 +466,22 @@
   </div>
 
   <script src="script.js"></script>
+  <script>
+  const nuhavLocation = new naver.maps.LatLng(37.5034976, 126.7535144);
+
+  const map = new naver.maps.Map('naver-map', {
+    center: nuhavLocation,
+    zoom: 16,
+    zoomControl: true,
+    zoomControlOptions: {
+      position: naver.maps.Position.TOP_RIGHT
+    }
+  });
+
+  const marker = new naver.maps.Marker({
+    position: nuhavLocation,
+    map: map
+  });
+</script>
 </body>
 </html>
