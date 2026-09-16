@@ -137,7 +137,7 @@ button{font:inherit}
 .step h3{font:500 25px "Noto Serif KR",serif;margin:42px 0 18px}
 .step p{font-family:"Noto Serif KR",serif;font-size:11px;line-height:1.9;color:var(--muted);max-width:310px}
 
-.location-section{display:grid;grid-template-columns:.85fr 1.15fr;min-height:480px;background:#e7dfd4}
+.location-section{display:grid;grid-template-columns:.85fr 1.15fr;min-height:430px;background:#e7dfd4}
 .location-copy{padding:105px 7vw;display:flex;flex-direction:column;justify-content:center}
 .location-address{font-family:"Noto Serif KR",serif;font-size:14px;line-height:2;color:var(--muted);margin:36px 0 28px}
 .location-buttons{display:flex;gap:10px;flex-wrap:wrap}
