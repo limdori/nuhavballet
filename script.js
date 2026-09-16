@@ -1,1 +1,27 @@
-document.addEventListener('DOMContentLoaded', () => {\n  const toggle = document.querySelector('.menu-toggle');\n  const nav = document.querySelector('.nav');\n  if (toggle && nav) {\n    toggle.addEventListener('click', () => nav.classList.toggle('open'));\n    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));\n  }\n\n  document.querySelectorAll('.faq-item').forEach(item => {\n    item.addEventListener('click', () => item.classList.toggle('active'));\n  });\n\n  const revealItems = document.querySelectorAll('.reveal');\n  if ('IntersectionObserver' in window) {\n    const observer = new IntersectionObserver((entries) => {\n      entries.forEach(entry => {\n        if (entry.isIntersecting) {\n          entry.target.classList.add('is-visible');\n          observer.unobserve(entry.target);\n        }\n      });\n    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });\n    revealItems.forEach(el => observer.observe(el));\n  } else {\n    revealItems.forEach(el => el.classList.add('is-visible'));\n  }\n});\n
+document.addEventListener('DOMContentLoaded', () => {
+  const toggle = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('.nav');
+  if (toggle && nav) {
+    toggle.addEventListener('click', () => nav.classList.toggle('open'));
+    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
+  }
+
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.addEventListener('click', () => item.classList.toggle('active'));
+  });
+
+  const revealItems = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    revealItems.forEach(el => observer.observe(el));
+  } else {
+    revealItems.forEach(el => el.classList.add('is-visible'));
+  }
+});
