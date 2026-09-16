@@ -25,3 +25,37 @@ document.addEventListener('DOMContentLoaded', () => {
     revealItems.forEach(el => el.classList.add('is-visible'));
   }
 });
+
+const trialForm = document.querySelector('.trial-form');
+
+if (trialForm) {
+  trialForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const submitButton = trialForm.querySelector('button[type="submit"]');
+    const originalText = submitButton.innerHTML;
+
+    submitButton.disabled = true;
+    submitButton.innerHTML = '<span>신청 중...</span>';
+
+    try {
+      const response = await fetch(trialForm.action, {
+        method: 'POST',
+        body: new FormData(trialForm),
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        window.location.href = '/thanks.html';
+      } else {
+        throw new Error('Submission failed');
+      }
+    } catch (error) {
+      alert('신청 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.');
+      submitButton.disabled = false;
+      submitButton.innerHTML = originalText;
+    }
+  });
+}
