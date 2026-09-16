@@ -505,86 +505,76 @@ footer p{font-size:8px;letter-spacing:.15em;margin:7px 0 0;opacity:.7}
   .director-portrait-wrap{max-width:260px;margin:0 auto}
   .director-caption{text-align:center}
 }
-/* MOBILE DIRECTOR — DESKTOP STYLE */
-@media (max-width: 560px) {
 
+/* MOBILE DIRECTOR — COMPACT EDITORIAL PROFILE */
+@media (max-width: 560px) {
   .director-section{
     display:grid !important;
-    grid-template-columns: 38% 1fr !important;
-    gap:18px !important;
+    grid-template-columns:1fr !important;
+    gap:24px !important;
+    padding:64px 20px !important;
     align-items:start !important;
-    padding-left:18px !important;
-    padding-right:18px !important;
   }
-
   .director-portrait-wrap{
+    position:static !important;
     width:100% !important;
-    max-width:none !important;
-    margin:0 !important;
+    max-width:210px !important;
+    margin:0 auto !important;
   }
-
   .director-portrait{
     width:100% !important;
-    height:auto !important;
-    aspect-ratio:auto !important;
+    aspect-ratio:107 / 147 !important;
+    margin:0 !important;
+    overflow:hidden !important;
   }
-
   .director-portrait img{
+    display:block !important;
     width:100% !important;
-    height:auto !important;
-    object-fit:contain !important;
+    height:100% !important;
+    object-fit:cover !important;
+    object-position:center top !important;
   }
-
   .director-caption{
-    text-align:left !important;
-    font-size:7px !important;
-    letter-spacing:.12em !important;
+    margin-top:8px !important;
+    text-align:center !important;
+    font-size:8px !important;
+    letter-spacing:.14em !important;
   }
-
-  .director-content{
-    min-width:0 !important;
-  }
-
-  .director-heading{
-    margin-bottom:18px !important;
-  }
-
+  .director-content{min-width:0 !important;width:100% !important;}
+  .director-heading{margin-bottom:28px !important;text-align:left !important;}
   .director-heading h2{
-    font-size:30px !important;
-    line-height:.95 !important;
-    margin:8px 0 10px !important;
+    font-size:42px !important;
+    line-height:.92 !important;
+    margin:10px 0 8px !important;
   }
-
-  .director-role{
-    font-size:11px !important;
-  }
-
+  .director-name{font-size:14px !important;margin:0 0 20px !important;}
   .director-copy{
-    font-size:10px !important;
-    line-height:1.8 !important;
-    margin-top:16px !important;
+    max-width:none !important;
+    font-size:11px !important;
+    line-height:1.9 !important;
+    margin:0 !important;
   }
-
   .director-profile{
     display:grid !important;
-    grid-template-columns:1fr 1fr !important;
-    gap:0 14px !important;
-    margin-top:22px !important;
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr) !important;
+    gap:22px 18px !important;
+    margin-top:0 !important;
   }
-
   .director-profile > div{
-    padding:12px 0 !important;
-    border-top:1px solid rgba(30,25,20,.22) !important;
+    min-width:0 !important;
+    padding-top:12px !important;
+    border-top:1px solid rgba(36,30,25,.25) !important;
   }
-
   .director-profile h3{
-    font-size:10px !important;
-    letter-spacing:.08em !important;
-    margin-bottom:7px !important;
+    font-size:13px !important;
+    line-height:1.1 !important;
+    letter-spacing:.04em !important;
+    margin:0 0 9px !important;
+    overflow-wrap:anywhere;
   }
-
   .director-profile p{
-    font-size:8px !important;
-    line-height:1.7 !important;
+    font-size:9px !important;
+    line-height:1.75 !important;
+    margin:0 !important;
   }
 }
